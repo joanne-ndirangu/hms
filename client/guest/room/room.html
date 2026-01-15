@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!-- FontAwesome for icons -->
+    <title>Rooms | Osnet Boutique Resort</title>
+    <link rel="stylesheet" href="../guest.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+          <nav>
+            <a href="../home/home.html"><i class="fas fa-home"></i> Home</a>
+            <a href="../room/room.html"><i class="fas fa-bed"></i> Rooms</a>
+            <!-- <a href="#facilities"><i class="fas fa-concierge-bell"></i> Facilities</a> -->
+            <a href="../review/review.html"><i class="fas fa-comments"></i> Reviews</a>
+            <a href="../contact/contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+          </nav>
+        </div>
+        <div class="content-with-sidebar">
+          <div class="user-menu">
+            <button id="userButton" class="user-btn">
+              <img src="https://i.pinimg.com/474x/3c/ae/07/3cae079ca0b9e55ec6bfc1b358c9b1e2.jpg" alt="User Profile" class="profile-img"> ▾</button>
+            <div id="userDropdown" class="dropdown-content">
+              <a href="#">Profile</a>
+              <a href="../my-bookings/my-bookings.html">My Bookings</a>
+              <a href="../my-reviews/my-reviews.html">My Reviews</a>
+              <a href="/client/index.html" id="logout-link">Logout</a>
+            </div>
+          </div>
+    </header>
+    <!-- Rooms Section -->
+    <section id="rooms-section">
+        <h2>Available Rooms</h2>
+
+        <div id="rooms-list">
+            <!-- Room cards will be populated here by JavaScript -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Osnet Boutique Resort | All Rights Reserved</p>
+    </footer>
+
+    <script src="room.js"></script>
+    <script src="../home/home.js"></script>
+</body>
+</html>

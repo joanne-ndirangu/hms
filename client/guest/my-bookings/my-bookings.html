@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <title>My Bookings | Osnet Boutique Resort</title>
+  <link rel="stylesheet" href="../guest.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="../home/home.html"><i class="fas fa-home"></i> Home</a>
+        <a href="../room/room.html"><i class="fas fa-bed"></i> Rooms</a>
+        <!-- <a href="#facilities"><i class="fas fa-concierge-bell"></i> Facilities</a> -->
+        <a href="../review/review.html"><i class="fas fa-comments"></i> Reviews</a>
+        <a href="../contact/contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+      </nav>
+    </div>
+    <div class="content-with-sidebar">
+      <div class="user-menu">
+        <button id="userButton" class="user-btn">
+          <img src="https://i.pinimg.com/474x/3c/ae/07/3cae079ca0b9e55ec6bfc1b358c9b1e2.jpg" alt="User Profile" class="profile-img" /> ▾
+        </button>
+        <div id="userDropdown" class="dropdown-content">
+          <a href="../profile/profile.html">Profile</a>
+          <a href="#">My Bookings</a>
+          <a href="../my-reviews/my-reviews.html">My Reviews</a>
+          <a href="/client/index.html" id="logout-link">Logout</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="my-bookings">
+    <h2>My Bookings</h2>
+    <p>Manage your reservations below</p>
+    <a href="../room/room.html" id="mybookingsbtn" class="btn">Book Now</a>
+    <div id="bookings-list">
+      <!-- Bookings will be listed here -->
+    </div>
+  </section>
+
+  <!-- Edit Form Container -->
+  <div id="edit-form-container" style="display: none;">
+    <form id="edit-booking-form">
+      <input type="hidden" id="edit-booking-id" />
+
+      <label for="edit-check-in">Check-In:</label>
+      <input type="date" id="edit-check-in" required />
+
+      <label for="edit-check-out">Check-Out:</label>
+      <input type="date" id="edit-check-out" required />
+
+      <!-- <button type="button" id="check-availability-btn">Check Availability</button> -->
+
+      <p id="availability-message"></p>
+
+      <label for="edit-room">Room:</label>
+      <select id="edit-room" required></select> <br>
+
+      <label>Add-ons:</label>
+      <div id="edit-addons-container"></div>
+
+      <p>Total Amount: Ksh <span id="edit-total-amount">0</span></p>
+
+      <div class="form-buttons">
+        <button type="button" id="save-edit-booking">Save</button>
+        <button type="button" id="cancel-edit-btn">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="delete-message-container" class="popup" style="display: none;">
+    <h2>Delete Booking</h2>
+    <input type="hidden" id="delete-booking-id">
+    <p>Are you sure you want to cancel this booking?</p>
+    <button id="confirm-delete">Yes, Cancel</button>
+    <button id="cancel-delete">Cancel</button>
+  </div>
+  
+
+  <script src="my-bookings.js"></script>
+  <script src="../home/home.js"></script>
+</body>
+</html>

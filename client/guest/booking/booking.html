@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking | Osnet Boutique Resort</title>
+  <link rel="stylesheet" href="../guest.css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="../home/home.html"><i class="fas fa-home"></i> Home</a>
+        <a href="../room/room.html"><i class="fas fa-bed"></i> Rooms</a>
+        <!-- <a href="#facilities"><i class="fas fa-concierge-bell"></i> Facilities</a> -->
+        <a href="../review/review.html"><i class="fas fa-comments"></i> Reviews</a>
+        <a href="../contact/contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+      </nav>
+    </div>
+    <div class="content-with-sidebar">
+      <div class="user-menu">
+        <button id="userButton" class="user-btn">
+          <img src="https://i.pinimg.com/474x/3c/ae/07/3cae079ca0b9e55ec6bfc1b358c9b1e2.jpg" alt="User Profile" class="profile-img"> ▾
+        </button>
+        <div id="userDropdown" class="dropdown-content">
+          <a href="#">Profile</a>
+          <a href="../my-bookings/my-bookings.html">My Bookings</a>
+          <a href="../my-reviews/my-reviews.html">My Reviews</a>
+          <a href="/client/index.html" id="logout-link">Logout</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Booking Section -->
+  <main id="booking-main">
+    <section id="booking-section" class="section-box">
+      <h2>Room Booking</h2>
+
+      <div class="form-group">
+        <label for="check-in">Check-in:</label>
+        <input type="date" id="check-in" required />
+      </div>
+
+      <div class="form-group">
+        <label for="check-out">Check-out:</label>
+        <input type="date" id="check-out" required />
+      </div>
+
+      <p id="availability-message"></p>
+      <button id="book-now-btn" disabled>Book Now</button>
+    </section>
+
+    <!-- Booking Form -->
+    <section id="booking-form" class="section-box" style="display: none;">
+      <h3>Complete Your Booking</h3>
+      <p><strong>Choose Addons (optional):</strong></p> <br><p><i>(Breakfast is calculated per night)</i></p> <br>
+
+      <!-- Addon Group: This will be populated dynamically -->
+      <div class="addon-group" id="addon-group"></div>
+
+      <p id="total-price">Total: Ksh <span id="price-amount">0</span></p>
+
+      <button id="confirm-booking-btn">Confirm Booking</button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Osnet Boutique Resort | All Rights Reserved</p>
+  </footer>
+
+  <script src="booking.js"></script>
+  <script src="../home/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Reviews | Osnet Boutique Resort</title>
+  <link rel="stylesheet" href="../guest.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="../home/home.html"><i class="fas fa-home"></i> Home</a>
+        <a href="../room/room.html"><i class="fas fa-bed"></i> Rooms</a>
+        <!-- <a href="#facilities"><i class="fas fa-concierge-bell"></i> Facilities</a> -->
+        <a href="../review/review.html"><i class="fas fa-comments"></i> Reviews</a>
+        <a href="../contact/contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+      </nav>
+    </div>
+    <div class="content-with-sidebar">
+      <div class="user-menu">
+        <button id="userButton" class="user-btn">
+          <img src="https://i.pinimg.com/474x/3c/ae/07/3cae079ca0b9e55ec6bfc1b358c9b1e2.jpg" alt="User Profile" class="profile-img"> ▾</button>
+        <div id="userDropdown" class="dropdown-content">
+          <a href="../profile/profile.html">Profile</a>
+          <a href="../my-bookings/my-bookings.html">My Bookings</a>
+          <a href="../my-reviews/my-reviews.html">My Reviews</a>
+          <a href="/client/index.html" id="logout-link">Logout</a>
+        </div>
+      </div>
+  </header>
+
+  <main id="my-reviews">
+    <h2>My Reviews</h2>
+
+    <div id="reviews-container">
+      <!-- My Reviews will be listed here -->
+    </div>
+
+    <div id="add-review">
+      <h3>Leave a Review</h3>
+      <textarea id="review-text" placeholder="Write your review here..."></textarea>
+
+      <div id="star-rating">
+        <i class="fa-regular fa-star" data-value="1"></i>
+        <i class="fa-regular fa-star" data-value="2"></i>
+        <i class="fa-regular fa-star" data-value="3"></i>
+        <i class="fa-regular fa-star" data-value="4"></i>
+        <i class="fa-regular fa-star" data-value="5"></i>
+      </div>
+
+      <button id="submit-review">Submit Review</button>
+    </div>
+  </main>
+
+  <script src="./my-reviews.js"></script>
+  <script src="../home/home.js"></script>
+</body>
+</html>
