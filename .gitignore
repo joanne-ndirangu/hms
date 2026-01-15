@@ -1,0 +1,22 @@
+# Environment files
+.env
+server/.env
+
+# Credentials
+token.json
+server/token.json
+client_secret*.json
+server/gmail-api/
+*.json
+
+# Node modules
+node_modules/
+server/node_modules/
+
+# Logs
+*.log
+logs/
+
+# System files
+.DS_Store
+.vscode/
