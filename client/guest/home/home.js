@@ -13,27 +13,27 @@ document.getElementById("logout-link").addEventListener("click", function(event)
 
 const images = [
     {
-      src: "https://www.momondo.com/rimg/himg/90/5f/72/expedia_group-2733205-249207-903697.jpg?width=968&height=607&crop=true",
+      src: "http://localhost:5000/images/osnet.jpg",
       alt: "Building"
     },
     {
-        src: "https://www.momondo.com/rimg/himg/01/57/b9/expedia_group-2733205-8d8ed2-044850.jpg?width=968&height=607&crop=true",
+        src: "http://localhost:5000/images/frontdesk.png",
         alt: "Front Desk"
       },
     {
-      src: "https://www.momondo.com/rimg/himg/7e/77/6a/expedia_group-2733205-3136453-031524.jpg?width=968&height=607&crop=true",
+      src: "http://localhost:5000/images/outdoor.png",
       alt: "Outdoor"
     },
     {
-      src: "https://www.momondo.com/rimg/himg/58/3a/b4/expedia_group-2733205-219572729-038519.jpg?width=968&height=607&crop=true",
+      src: "http://localhost:5000/images/restaurant1.png",
       alt: "Restaurant"
     },
     {
-      src: "https://www.momondo.com/rimg/himg/e3/6c/41/expedia_group-2733205-100362006-927217.jpg?width=968&height=607&crop=true",
+      src: "http://localhost:5000/images/restaurant2.png",
       alt: "Restaurant"
     },
     {
-      src: "https://www.momondo.com/rimg/himg/2d/d3/2b/expedia_group-2733205-04f9e5-783070.jpg?width=968&height=607&crop=true",
+      src: "http://localhost:5000/images/bar.png",
       alt: "Bar"
     },
   ];

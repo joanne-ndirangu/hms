@@ -11,6 +11,9 @@ app.use(cors()); // This will allow all domains to access the server
 // Middleware
 app.use(express.json());  // To parse JSON bodies
 app.use(express.static('client/components')); // Serve static files like images
+// Serve images from client/images
+app.use('/images', express.static(__dirname + '/../client/images'));
+
 
 // Set up routes
 const bookingsRoutes = require('./routes/bookings');

@@ -145,7 +145,7 @@ header nav a:hover {
 
 /* Hero Section */
 #hero {
-  background: url('https://www.momondo.com/rimg/himg/8d/35/cf/expedia_group-2733205-148175201-979084.jpg?width=968&height=607&crop=true') no-repeat center center/cover;
+  background: url('../images/restaurant1.png') no-repeat center center/cover;
   color: white;
   text-align: center;
   border-radius: 12px;
