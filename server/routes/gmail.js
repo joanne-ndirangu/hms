@@ -1,12 +1,36 @@
 const express = require('express');
-const { getAuthUrl, authenticate, oauth2Callback, sendEmail } = require('../controllers/gmail'); // Import controller functions
+const nodemailer = require('nodemailer');
+require('dotenv').config();
 
 const router = express.Router();
 
-// Define Gmail routes
-router.get('/init', getAuthUrl);
-router.get('/authenticate', authenticate);  // Route to start OAuth flow
-router.get('/oauth2callback', oauth2Callback);  // Route to handle OAuth callback
-router.post('/send', sendEmail);  // Route to send email
+// Route to send email using App Password
+router.post('/send', async (req, res) => {
+  const { to, subject, body } = req.body;
+
+  try {
+    // Create transporter
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL_ADDRESS,
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
+    });
+
+    // Send email
+    const info = await transporter.sendMail({
+      from: process.env.GMAIL_ADDRESS,
+      to,
+      subject,
+      text: body,
+    });
+
+    res.status(200).json({ message: 'Email sent successfully!', info });
+  } catch (error) {
+    console.error('Email send error:', error.message);
+    res.status(500).json({ message: 'Failed to send email', error: error.message });
+  }
+});
 
 module.exports = router;
