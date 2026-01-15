@@ -1,0 +1,286 @@
+/* Base Styles */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../client/images/osnet.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    color: #fff;
+    height: 100vh;
+}
+
+/* Landing Page Login/Signup Forms */
+.landing-page-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4); /* Lighter overlay for better visibility */
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.65);
+    padding: 70px 80px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 600px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px); /* Adds subtle blur effect behind the overlay */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.overlay h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.overlay h1 span {
+    color: #d5aa60; /* Slightly more gold tone */
+}
+
+.overlay p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    color: #f0f0f0;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.landing-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.btn {
+    background-color: #d5aa60; /* More gold tone */
+    color: white;
+    padding: 14px 32px;
+    text-decoration: none;
+    border-radius: 30px; /* More rounded buttons */
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #e8c77d;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* Form Container */
+.page-overlay-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.form-container {
+    width: 350px;
+    background-color: rgba(0, 0, 0, 0.65);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    position: relative;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #d5aa60;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.form-container h3 {
+    color: #f0f0f0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 6px;
+    text-align: left;
+    color: #f0f0f0;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* Form row for side-by-side inputs */
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.form-group input {
+    width: 100%;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-container input:focus {
+    border-color: #d5aa60;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(213, 170, 96, 0.3);
+}
+
+.form-container button {
+    width: 100%;
+    padding: 14px;
+    background-color: #d5aa60;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.form-container button:hover {
+    background-color: #e8c77d;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#role-selection {
+    text-align: center;
+}
+
+#role-selection button {
+    width: 48%;
+    display: inline-block;
+    margin: 0 1% 20px 1%;
+}
+
+.form-container p {
+    text-align: center;
+    margin-top: 20px;
+    color: #e0e0e0;
+    font-size: 14px;
+}
+
+.form-container a {
+    color: #d5aa60;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.form-container a:hover {
+    color: #e8c77d;
+    text-decoration: underline;
+}
+
+#error-message {
+    background-color: rgba(220, 53, 69, 0.2);
+    border-left: 4px solid #dc3545;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+#success-message {
+    background-color: rgba(40, 167, 69, 0.2);
+    border-left: 4px solid #28a745;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+    .overlay {
+        padding: 50px 40px;
+        width: 85%;
+    }
+
+    .overlay h1 {
+        font-size: 36px;
+    }
+
+    .overlay p {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .overlay {
+        padding: 40px 25px;
+    }
+
+    .overlay h1 {
+        font-size: 28px;
+    }
+
+    .overlay p {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    .landing-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-container {
+        width: 90%;
+        padding: 30px 20px;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
