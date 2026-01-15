@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Osnet Boutique Resort</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="page-overlay-container">
+        <div class="form-container">
+            <h2>Create an Account</h2>
+            <form id="signup-form">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first_name" required>
+
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last_name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="../login/login.html">Log in</a></p>
+
+            <!-- Error Message Container -->
+            <div id="error-message" style="display: none; color: red; text-align: center; padding: 10px;"></div>
+            <!-- Success Message Container -->
+            <div id="success-message" style="display: none; color: green; text-align: center; padding: 10px;"></div>
+        </div>
+    </div>
+
+    <script src="signup.js"></script>
+</body>
+</html>
