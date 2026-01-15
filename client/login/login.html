@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>>Login | Onset Boutique Resort</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="page-overlay-container">
+        <div class="form-container">
+            <h2>Login</h2>
+
+            <div id="role-selection">
+                <h3>Select Role:</h3>
+                <button id="guest-button">Guest</button>
+                <button id="admin-button">Admin</button>
+            </div>
+
+            <div id="login-form" style="display:none;">
+                <form>
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+
+                    <button type="submit" id="submit-login">Login</button>
+                </form>
+                <p id="signup-link" style="display:none;">Don't have an account? <a href="../signup/signup.html">Sign Up</a></p>
+            </div>
+            <!-- Error Message Container -->
+            <div id="error-message" style="display: none; color: red; text-align: center; padding: 10px;"></div>
+            <!-- Success Message Container -->
+            <div id="success-message" style="display: none; color: green; text-align: center; padding: 10px;"></div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
