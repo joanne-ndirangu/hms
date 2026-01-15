@@ -6,7 +6,7 @@ require('dotenv').config();
 const SCOPES = ['https://www.googleapis.com/auth/gmail.send'];
 const tokenPath = path.join(__dirname, '../token.json');
 
-// 🔁 Step 0: Generate consent screen URL
+// Step 0: Generate consent screen URL
 function getAuthUrl(req, res) {
   const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = process.env;
   const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
@@ -20,7 +20,7 @@ function getAuthUrl(req, res) {
   res.status(200).json({ authUrl });
 }
 
-// 🔐 Step 1: Callback after user approves
+// Step 1: Callback after user approves
 async function oauth2Callback(req, res) {
   const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = process.env;
   const { code } = req.query;
@@ -38,7 +38,7 @@ async function oauth2Callback(req, res) {
   }
 }
 
-// ✅ Step 2: Confirm if token is valid
+// Step 2: Confirm if token is valid
 function authenticate(req, res) {
   try {
     const token = fs.readFileSync(tokenPath);
@@ -52,7 +52,7 @@ function authenticate(req, res) {
   }
 }
 
-// 📧 Step 3: Send email
+// Step 3: Send email
 async function sendEmail(req, res) {
   const { to, subject, body } = req.body;
 
