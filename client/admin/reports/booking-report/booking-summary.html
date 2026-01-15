@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Summary Report</title>
+  <link rel="stylesheet" href="/client/admin/admin.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-header">
+        <h1>OSNET</h1>
+        <p>Booking Summary</p>
+      </div>
+    </div>
+    <div class="sidebar-menu">
+      <a href="/client/admin/admin.html"><i class="fas fa-th-large"></i> <span>Dashboard</span></a>
+      <a href="/client/admin/bookings/bookings.html"><i class="fas fa-calendar-check"></i> <span>Bookings</span></a>
+      <a href="/client/admin/guests/guests.html"><i class="fas fa-users"></i> <span>Guests</span></a>
+      <a href="/client/admin/rooms/rooms.html"><i class="fas fa-door-open"></i> <span>Rooms</span></a>
+      <a href="/client/admin/reviews/reviews.html"><i class="fas fa-star"></i> <span>Reviews</span></a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle">
+          <i class="fas fa-chart-line"></i> 
+          <span>Reports</span> 
+          <i class="fas fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu" id="reportsDropdown">
+          <li><a href="../guest-list-report/guest-list.html"><i class="fas fa-user-friends"></i> Guest List Report</a></li>
+          <li><a href="#" class="active"><i class="fas fa-clipboard-list"></i> Booking Summary</a></li>
+          <li><a href="../revenue-report/revenue.html"><i class="fas fa-dollar-sign"></i> Revenue Report</a></li>
+          <li><a href="../room-occupancy-report/occupancy.html"><i class="fas fa-bed"></i> Room Occupancy</a></li>
+          <li><a href="../top-guests-report/top-guests.html"><i class="fas fa-user-crown"></i> Top Guests</a></li>
+          <li><a href="../top-rooms-report/top-rooms.html"><i class="fas fa-trophy"></i> Top Earning Rooms</a></li>
+          <li><a href="../daily-activity/daily-activity.html"><i class="fas fa-chart-bar"></i> Daily Booking Activity</a></li>
+          <li><a href="../average-rating/average-rating.html"><i class="fas fa-star-half-alt"></i> Average Rating</a></li>
+          <!-- <li><a href="../cancelled-bookings/"><i class="fas fa-calendar-times"></i> Cancelled Bookings</a></li> -->
+          <li><a href="../bookings-by-date/bookings-by-date.html"><i class="fas fa-calendar-alt"></i> Bookings by Date Range</a></li>
+          <li><a href="../stay-duration/stay-duration.html"><i class="fas fa-hourglass-half"></i> Guest Stay Duration</a></li>
+          <li><a href="../repeat-guests/repeat-guests.html"><i class="fas fa-redo"></i> Repeat Guests</a></li>
+          <li><a href="../no-booking-guests/no-booking-guests.html"><i class="fas fa-user-slash"></i> Guests Without Bookings</a></li>
+        </ul>
+      </div>
+
+      <a href="/client/index.html"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
+    </div>
+    <div class="sidebar-footer">
+      <p>© 2025 OSNET Hotel Management</p>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="page-header">
+      <h2>Booking Summary</h2>
+      <div class="breadcrumb">Reports / Booking Summary</div>
+    </div>
+
+    <!-- Summary Widgets -->
+    <div class="dashboard-widgets">
+      <div class="widget">
+        <div class="widget-title">TOTAL BOOKINGS</div>
+        <div class="widget-value" id="total-bookings"></div>
+      </div>
+      <div class="widget">
+        <div class="widget-title">CONFIRMED</div>
+        <div class="widget-value" id="confirmed-bookings"></div>
+      </div>
+      <div class="widget">
+        <div class="widget-title">CANCELLED</div>
+        <div class="widget-value" id="cancelled-bookings"></div>
+      </div>
+      <div class="widget">
+        <div class="widget-title">PENDING</div>
+        <div class="widget-value" id="pending-bookings"></div>
+      </div>
+    </div>
+
+    <!-- Date Filter Form -->
+    <form id="filterForm" style="margin-top: 30px;">
+      <label>
+        Start Date:
+        <input type="date" name="start" required>
+      </label>
+      <label>
+        End Date:
+        <input type="date" name="end" required>
+      </label>
+      <button type="submit">Filter</button>
+    </form>
+
+    <!-- Booking Table -->
+    <h3 style="margin-top: 30px; color: #c59d5f;">Booking Details</h3>
+    <table id="reportTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Guest Name</th>
+          <th>Room Number</th>
+          <th>Room Type</th>
+          <th>Check-in</th>
+          <th>Check-out</th>
+          <th>Total Amount (Ksh)</th>
+          <th>Booking Status</th>
+          <th>Payment Status</th>
+          <th>Add-ons</th>
+        </tr>
+      </thead>
+      <tbody id="reportTableBody">
+        <!-- Data rows go here -->
+      </tbody>
+    </table>
+
+    <!-- Bookings by Room Type -->
+    <h3 style="margin-top: 30px; color: #c59d5f;">Bookings by Room Type</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Room Type</th>
+          <th>Number of Bookings</th>
+        </tr>
+      </thead>
+      <tbody id="bookings-by-roomtype">
+        <!-- Rows will be injected here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="booking-summary.js"></script>
+  <script src="../reports.js"></script>
+  <script src="/client/admin/admin.js"></script>
+</body>
+</html>

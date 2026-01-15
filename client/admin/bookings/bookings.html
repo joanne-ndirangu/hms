@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookings</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="../admin.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-header">
+        <h1>OSNET</h1>
+        <p>Reservation Management</p>
+      </div>
+    </div>
+    <div class="sidebar-menu">
+      <a href="../admin.html"><i class="fas fa-th-large"></i> <span>Dashboard</span></a>
+      <a href="#" class="active"><i class="fas fa-calendar-check"></i> <span>Bookings</span></a>
+      <a href="../guests/guests.html"><i class="fas fa-users"></i> <span>Guests</span></a>
+      <a href="../rooms/rooms.html"><i class="fas fa-door-open"></i> <span>Rooms</span></a>
+      <a href="../reviews/reviews.html"><i class="fas fa-star"></i> <span>Reviews</span></a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle">
+          <i class="fas fa-chart-line"></i> 
+          <span>Reports</span> 
+          <i class="fas fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu" id="reportsDropdown">
+          <li><a href="../reports/guest-list-report/guest-list.html"><i class="fas fa-user-friends"></i> Guest List Report</a></li>
+          <li><a href="../reports/booking-report/booking-summary.html"><i class="fas fa-clipboard-list"></i> Booking Summary</a></li>
+          <li><a href="../reports/revenue-report/revenue.html"><i class="fas fa-dollar-sign"></i> Revenue Report</a></li>
+          <li><a href="../reports/room-occupancy-report/occupancy.html"><i class="fas fa-bed"></i> Room Occupancy</a></li>
+          <li><a href="../reports/top-guests-report/top-guests.html"><i class="fas fa-user-crown"></i> Top Guests</a></li>
+          <li><a href="../reports/top-rooms-report/top-rooms.html"><i class="fas fa-trophy"></i> Top Earning Rooms</a></li>
+          <li><a href="../reports/daily-activity/daily-activity.html"><i class="fas fa-chart-bar"></i> Daily Booking Activity</a></li>
+          <li><a href="../reports/average-rating/average-rating.html"><i class="fas fa-star-half-alt"></i> Average Rating</a></li>
+          <!-- <li><a href="../cancelled-bookings/"><i class="fas fa-calendar-times"></i> Cancelled Bookings</a></li> -->
+          <li><a href="../reports/bookings-by-date/bookings-by-date.html"><i class="fas fa-calendar-alt"></i> Bookings by Date Range</a></li>
+          <li><a href="../reports/stay-duration/stay-duration.html"><i class="fas fa-hourglass-half"></i> Guest Stay Duration</a></li>
+          <li><a href="../reports/repeat-guests/repeat-guests.html"><i class="fas fa-redo"></i> Repeat Guests</a></li>
+          <li><a href="../reports/no-booking-guests/no-booking-guests.html"><i class="fas fa-user-slash"></i> Guests Without Bookings</a></li>
+        </ul>
+      </div>
+      <a href="/client/index.html"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
+    </div>
+    <div class="sidebar-footer">
+      <p>© 2025 OSNET Hotel Management</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="content-area">
+    <div class="page-header">
+      <h2>Bookings</h2>
+      <div class="breadcrumb">Home / Bookings</div>
+    </div>
+
+    <button id="toggle-form-btn">Add New Booking</button>
+  
+    <!-- Success / Error Messages -->
+    <div id="message"></div>
+  
+    <!-- Add Booking Form -->
+<div id="add-booking-form" style="display: none; margin-top: 20px; font-size: 14px; max-width: 400px; padding: 10px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9;">
+  <h3 style="margin-bottom: 10px;">Add New Booking</h3>
+  <input type="hidden" id="booking-id">
+
+  <input type="number" id="user-id" placeholder="User ID" required style="width: 100%; margin-bottom: 2px; padding: 4px;"><br>
+
+  <input type="date" id="check-in" required style="width: 100%; margin-bottom: 4px; padding: 4px;"><br>
+  <input type="date" id="check-out" required style="width: 100%; margin-bottom: 4px; padding: 4px;"><br>
+
+  <!-- Room Dropdown -->
+  <select id="room-id" style="width: 100%; margin-bottom: 4px; padding: 4px;"></select>
+
+  <!-- Addons Checklist -->
+  <p style="font-size: 12px; color: #555;"><i>(Breakfast is calculated per night)</i></p> 
+  <div id="addons-container" style="margin-bottom: 5px;"></div>
+
+  <!-- Total Amount Display -->
+  <p style="margin: 5px 0;">Total: <strong>Ksh <span id="total-amount">0.00</span></strong></p>
+
+  <button id="create-booking" style="padding: 8px 12px; font-size: 14px; cursor: pointer;">Create Booking</button>
+</div>
+
+  
+    <!-- Search Bar -->
+    <div style="margin: 20px 0;">
+      <input type="text" id="booking-search" placeholder="Search bookings..." style="padding: 8px; width: 100%; max-width: 300px;">
+    </div>
+
+    <!-- List of Bookings -->
+    <div id="bookings-list" style="margin-top: 30px;">
+      <table id="bookings-table">
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>User Name</th>
+            <th>Room Number</th>
+            <th>Room Type</th>
+            <th>Check-in</th>
+            <th>Check-out</th>
+            <th>Total Amount (Ksh)</th>
+            <th>Status</th>
+            <th>Add-ons</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="bookings-table-body">
+          <!-- Booking rows will be dynamically inserted here -->
+        </tbody>
+      </table>
+    </div>
+    
+    <div id="overlay"></div>
+    
+    <!-- Edit Popup -->
+    <div id="edit-booking-popup" style="display: none;" class="popup">
+      <h3>Edit Booking</h3>
+      <form id="edit-booking-form">
+        <label>Room:
+          <select id="edit-room-id"></select>
+        </label><br>
+        <label>Check-in:
+          <input type="date" id="edit-check-in">
+        </label><br>
+        <label>Check-out:
+          <input type="date" id="edit-check-out">
+        </label><br>
+        <div id="edit-addons-container"></div><br>
+        <p>Total: Ksh <span id="edit-total-amount">0.00</span></p>
+        <button type="button" id="save-edit-btn">Save Changes</button>
+        <button id="cancel-edit">Cancel</button>
+      </form>
+    </div>
+
+
+    <!-- Delete Booking Popup -->
+    <div id="delete-booking-popup" class="popup">
+      <h2>Delete Booking</h2>
+      <input type="hidden" id="delete-booking-id">
+      <p>Are you sure you want to delete this booking?</p>
+      <button id="confirm-delete">Yes, Delete</button>
+      <button id="cancel-delete">Cancel</button>
+    </div>
+
+    <script src="bookings.js"></script>
+    <script src="../reports/reports.js"></script>
+  </div>
+</body>
+</html>

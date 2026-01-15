@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guests</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/client/admin/admin.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-header">
+        <h1>OSNET</h1>
+        <p>Top Earning Rooms Report</p>
+      </div>
+    </div>
+    <div class="sidebar-menu">
+      <a href="/client/admin/admin.html"><i class="fas fa-th-large"></i> <span>Dashboard</span></a>
+      <a href="/client/admin/bookings/bookings.html"><i class="fas fa-calendar-check"></i> <span>Bookings</span></a>
+      <a href="/client/admin/guests/guests.html"><i class="fas fa-users"></i> <span>Guests</span></a>
+      <a href="/client/admin/rooms/rooms.html"><i class="fas fa-door-open"></i> <span>Rooms</span></a>
+      <a href="/client/admin/reviews/reviews.html"><i class="fas fa-star"></i> <span>Reviews</span></a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle">
+          <i class="fas fa-chart-line"></i> 
+          <span>Reports</span> 
+          <i class="fas fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu" id="reportsDropdown">
+          <li><a href="../guest-list-report/guest-list.html"><i class="fas fa-user-friends"></i> Guest List Report</a></li>
+          <li><a href="../booking-report/booking-summary.html"><i class="fas fa-clipboard-list"></i> Booking Summary</a></li>
+          <li><a href="../revenue-report/revenue.html"><i class="fas fa-dollar-sign"></i> Revenue Report</a></li>
+          <li><a href="../room-occupancy-report/occupancy.html"><i class="fas fa-bed"></i> Room Occupancy</a></li>
+          <li><a href="../top-guests-report/top-guests.html"><i class="fas fa-user-crown"></i> Top Guests</a></li>
+          <li><a href="#" class="active"><i class="fas fa-trophy"></i> Top Earning Rooms</a></li>
+          <li><a href="../daily-activity/daily-activity.html"><i class="fas fa-chart-bar"></i> Daily Booking Activity</a></li>
+          <li><a href="../average-rating/average-rating.html"><i class="fas fa-star-half-alt"></i> Average Rating</a></li>
+          <!-- <li><a href="../cancelled-bookings/"><i class="fas fa-calendar-times"></i> Cancelled Bookings</a></li> -->
+          <li><a href="../bookings-by-date/bookings-by-date.html"><i class="fas fa-calendar-alt"></i> Bookings by Date Range</a></li>
+          <li><a href="../stay-duration/stay-duration.html"><i class="fas fa-hourglass-half"></i> Guest Stay Duration</a></li>
+          <li><a href="../repeat-guests/repeat-guests.html"><i class="fas fa-redo"></i> Repeat Guests</a></li>
+          <li><a href="../no-booking-guests/no-booking-guests.html"><i class="fas fa-user-slash"></i> Guests Without Bookings</a></li>
+        </ul>
+      </div>
+      <a href="/client/index.html"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
+    </div>
+    <div class="sidebar-footer">
+      <p>© 2025 OSNET Hotel Management</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="content-area">
+    <div class="page-header">
+      <h2>Top Rooms</h2>
+      <div class="breadcrumb">Reports / Top Rooms</div>
+    </div>
+      <label for="limit">Number of Rooms to Show:</label>
+    <input type="number" id="limit" value="10" min="1" max="100" />
+    <button id="loadBtn">Load Top Rooms</button>
+
+    <p id="loading">Loading...</p>
+    <p id="error" style="color: red;"></p>
+
+    <table id="roomsTable" style="display: none;">
+      <thead>
+        <tr>
+          <th>Room Number</th>
+          <th>Room Type</th>
+          <th>Total Bookings</th>
+          <th>Total Earned (Ksh)</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  
+  <script src="top-rooms.js"></script>
+  <script src="../reports.js"></script>
+</body>
+</html>

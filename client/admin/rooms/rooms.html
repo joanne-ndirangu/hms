@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../admin.css">
+</head>
+<body>
+    <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-header">
+        <h1>OSNET</h1>
+        <p>Room Management</p>
+      </div>
+    </div>
+    <div class="sidebar-menu">
+      <a href="../admin.html"><i class="fas fa-th-large"></i> <span>Dashboard</span></a>
+      <a href="../bookings/bookings.html"><i class="fas fa-calendar-check"></i> <span>Bookings</span></a>
+      <a href="../guests/guests.html"><i class="fas fa-users"></i> <span>Guests</span></a>
+      <a href="#" class="active"><i class="fas fa-door-open"></i> <span>Rooms</span></a>
+      <a href="../reviews/reviews.html"><i class="fas fa-star"></i> <span>Reviews</span></a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle">
+          <i class="fas fa-chart-line"></i> 
+          <span>Reports</span> 
+          <i class="fas fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu" id="reportsDropdown">
+          <li><a href="../reports/guest-list-report/guest-list.html"><i class="fas fa-user-friends"></i> Guest List Report</a></li>
+          <li><a href="../reports/booking-report/booking-summary.html"><i class="fas fa-clipboard-list"></i> Booking Summary</a></li>
+          <li><a href="../reports/revenue-report/revenue.html"><i class="fas fa-dollar-sign"></i> Revenue Report</a></li>
+          <li><a href="../reports/room-occupancy-report/occupancy.html"><i class="fas fa-bed"></i> Room Occupancy</a></li>
+          <li><a href="../reports/top-guests-report/top-guests.html"><i class="fas fa-user-crown"></i> Top Guests</a></li>
+          <li><a href="../reports/top-rooms-report/top-rooms.html"><i class="fas fa-trophy"></i> Top Earning Rooms</a></li>
+          <li><a href="../reports/daily-activity/daily-activity.html"><i class="fas fa-chart-bar"></i> Daily Booking Activity</a></li>
+          <li><a href="../reports/average-rating/average-rating.html"><i class="fas fa-star-half-alt"></i> Average Rating</a></li>
+          <!-- <li><a href="../cancelled-bookings/"><i class="fas fa-calendar-times"></i> Cancelled Bookings</a></li> -->
+          <li><a href="../reports/bookings-by-date/bookings-by-date.html"><i class="fas fa-calendar-alt"></i> Bookings by Date Range</a></li>
+          <li><a href="../reports/stay-duration/stay-duration.html"><i class="fas fa-hourglass-half"></i> Guest Stay Duration</a></li>
+          <li><a href="../reports/repeat-guests/repeat-guests.html"><i class="fas fa-redo"></i> Repeat Guests</a></li>
+          <li><a href="../reports/no-booking-guests/no-booking-guests.html"><i class="fas fa-user-slash"></i> Guests Without Bookings</a></li>
+        </ul>
+      </div>
+      <a href="/client/index.html"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
+    </div>
+    <div class="sidebar-footer">
+      <p>© 2025 OSNET Hotel Management</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="content-area" style="width: 100vw;">
+    <div class="page-header">
+      <h2>Rooms</h2>
+      <div class="breadcrumb">Home / Rooms</div>
+  </div>
+
+    <button id="toggle-form-btn">Add New Room</button>
+    <!-- Add Room Form -->
+    <div id="add-room-form" style="display: none; margin-top: 20px; font-size: 14px; max-width: 400px; padding: 10px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9;">
+        <h2>Add New Room</h2>
+        <input type="hidden" id="room-id">
+        <input type="text" id="room-number" placeholder="Room Number" required>
+        <input type="text" id="room-type" placeholder="Room Type" required>
+        <input type="number" id="price" placeholder="Price" required>
+        <input type="text" id="status" placeholder="Status" required>
+        <textarea id="description" placeholder="Description" required></textarea>
+        <input type="url" id="image" placeholder="Image URL" required>
+        <button id="create-room">Add Room</button>
+    </div>
+
+     <!-- Search Bar -->
+      <div style="margin: 20px 0;">
+        <input type="text" id="search-room" placeholder="Search room..." style="padding: 8px; width: 100%; max-width: 300px;">
+      </div>
+
+    <!-- List of Rooms -->
+    <div id="rooms-list">
+    </div>
+
+    <script src="rooms.js"></script>
+    <script src="../reports/reports.js"></script>
+</body>
+</html>
